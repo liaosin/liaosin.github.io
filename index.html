@@ -153,7 +153,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/">基于hexo+github pages的个人博客开发笔记222</a>
+      <a class="article-title" href="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/">基于hexo+github pages的个人博客开发笔记</a>
     </h1>
   
 
@@ -177,9 +177,106 @@
 <li>markdown可以使用使用文本编辑，不存在跨平台编辑、兼容问题</li>
 <li>markdown可以进行图片、流程、math、code的混编，并自动排版</li>
 </ul>
-<h2 id="Why-Typora？"><a href="#Why-Typora？" class="headerlink" title="Why Typora？"></a>Why Typora？</h2><p>尝试过千百个markdown App，权衡对比后，提出：Typora+Quiver。</p>
+<h2 id="Why-Typora？"><a href="#Why-Typora？" class="headerlink" title="Why Typora？"></a>Why Typora？</h2><p>尝试过千百个markdown App，权衡对比后，提出：<strong>Typora+Quiver</strong>。</p>
 <p>Typora支持边写边看（偶尔存在一定的时延），完美支持各种图片、流程、math、code的混编。重点是支持math的在线预览，这个对长、复杂公式的编辑尤其重要！缺点：无法构建多级体系，Quiver可以完美互补。</p>
 <p><img src="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/quiver snap.jpeg" alt="Quiver多级体系"></p>
+<h2 id="Hexo-环境配置"><a href="#Hexo-环境配置" class="headerlink" title="Hexo 环境配置"></a>Hexo 环境配置</h2><p>本节引用 <strong><em>小pxu的 <a href="http://www.jianshu.com/p/6d2ec4ca6186" target="_blank" rel="external">如何使用hexo搭建个人博客</a></em></strong>。</p>
+<ol>
+<li><p>node.js（在<a href="https://nodejs.org/en/" target="_blank" rel="external">node.js官网</a>中下载安装）</p>
+</li>
+<li><p>git（OS系统中直接安装x-code就可以了）</p>
+</li>
+<li><p>hexo</p>
+<ol>
+<li><p>打开OS系统终端</p>
+</li>
+<li><p>输入安装hexo的代码(此处安装时有可能会提示输入系统管理员密码)</p>
+<p><code>$ sudo npm install -g hexo</code></p>
+</li>
+</ol>
+</li>
+<li><p>在用户目录下新建blog文件夹 ：<code>$ cd ~</code>；<code>$ mkdir blog</code></p>
+</li>
+<li><p>在终端进入该文件夹，初始化博客：<code>$ cd ~/blog</code>；<code>$ hexo init</code></p>
+</li>
+<li><p>完成以上后，在～/blog目录（博客根目录）下即可生成下图文件</p>
+<p><img src="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/blog snap.jpeg" alt="blog"></p>
+</li>
+<li><p>本次查看（ctrl+c退出本地服务器）：<code>$ hexo s</code>；使用safari进入 <a href="http://localhost:4000/即可查看效果" target="_blank" rel="external">http://localhost:4000/即可查看效果</a></p>
+</li>
+</ol>
+<h2 id="GitHub配置"><a href="#GitHub配置" class="headerlink" title="GitHub配置"></a>GitHub配置</h2><ol>
+<li><p>注册github账号并登陆</p>
+</li>
+<li><p>获取本机的SSH口令</p>
+<ol>
+<li><p>重启终端</p>
+</li>
+<li><p>输入：<code>$ ssh-keygen</code></p>
+</li>
+<li><p>输入编译代码：<code>vim ~/.ssh/id_rsa.pub</code></p>
+</li>
+<li><p>复制红色部分</p>
+<p><img src="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/red.jpg" alt="red"></p>
+</li>
+</ol>
+</li>
+<li><p>进入到github页面设置SSH口令</p>
+<ol>
+<li><p>点击用户下拉菜单中的settings（step1)</p>
+</li>
+<li><p>点击左侧的SHH and GPG keys（step2)</p>
+</li>
+<li><p>在Title中输入口令名称（随意）（step3)</p>
+</li>
+<li><p>在key中贴上SSH口令（step4)</p>
+<p><img src="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/red2.jpg" alt="red"></p>
+</li>
+</ol>
+</li>
+<li><p>创建新的仓库</p>
+<ol>
+<li>点击用户左侧的+号菜单中的New repOSitory（step1)</li>
+<li>在repOSitory name中输入二级域名，格式请严格遵照username.github.io（step2)</li>
+<li>ps：username填写github的登录用户名，否则上线的时候会报错</li>
+<li>是否公开选项可以选取Public（step3)</li>
+<li>勾选step4处，会自动生成一份可编辑的README.md文件（建议勾选）（step4)</li>
+<li>点击create repOSitory生成仓库完毕（step5)</li>
+</ol>
+<p><img src="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/red3.jpg" alt="red"></p>
+</li>
+<li><p>​</p>
+<h2 id="博客配置及发布"><a href="#博客配置及发布" class="headerlink" title="博客配置及发布"></a>博客配置及发布</h2><ol>
+<li><p>设置blog配置文件</p>
+<ol>
+<li><p>打开blog文件夹下的_config.yml文件</p>
+</li>
+<li><p>找到最下方的type，输入git（注意冒号后面是带空格的）</p>
+</li>
+<li><p>repo行可能没有，需要自己输入，后面跟上github上仓库中复制的http地址（注意此时1、2两处应该是一样的username），不然上传时会报错</p>
+<p><img src="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/red4.jpg" alt="red"></p>
+</li>
+</ol>
+</li>
+<li><p>在终端上传博客</p>
+<ol>
+<li>安装插件：<code>$ npm install hexo-deployer-git —save</code></li>
+<li>获取代码级上传代码：<code>hexo g -d</code></li>
+<li>重新在github仓库查看上传文件，此时在step2中会有之前bolg中生成的文件</li>
+<li>blog地址：<a href="https://username.github.io" target="_blank" rel="external">https://username.github.io</a></li>
+</ol>
+</li>
+<li><p>新建及更新博客</p>
+<ol>
+<li>新建：<code>hexo new &quot;filename&quot;</code></li>
+<li>此时在bolg/source/_posts/下面会看到新建的博客，文件：filename.md，用Typora打开编辑即可</li>
+<li>更新：<code>hexo g -d</code></li>
+<li>删除博客：在bolg/source/_posts/中删除对应.md文件，<code>hexo clean</code>即可。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 
       
 

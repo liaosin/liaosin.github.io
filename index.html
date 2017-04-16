@@ -214,7 +214,7 @@
 </li>
 <li><p>输入：<code>$ ssh-keygen</code></p>
 </li>
-<li><p>输入编译代码：<code>vim ~/.ssh/id_rsa.pub</code></p>
+<li><p>输入编译代码：<code>$ vim ~/.ssh/id_rsa.pub</code></p>
 </li>
 <li><p>复制红色部分</p>
 <p><img src="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/red.jpg" alt="red"></p>
@@ -244,8 +244,7 @@
 <li>点击create repOSitory生成仓库完毕（step5)</li>
 </ol>
 <p><img src="/2017/04/16/基于hexo-github-pages的个人博客开发笔记/red3.jpg" alt="red"></p>
-</li>
-<li><p>​</p>
+<p>​</p>
 <h2 id="博客配置及发布"><a href="#博客配置及发布" class="headerlink" title="博客配置及发布"></a>博客配置及发布</h2><ol>
 <li><p>设置blog配置文件</p>
 <ol>
@@ -261,18 +260,20 @@
 <li><p>在终端上传博客</p>
 <ol>
 <li>安装插件：<code>$ npm install hexo-deployer-git —save</code></li>
-<li>获取代码级上传代码：<code>hexo g -d</code></li>
+<li>获取代码级上传代码：<code>$ hexo g -d</code></li>
 <li>重新在github仓库查看上传文件，此时在step2中会有之前bolg中生成的文件</li>
 <li>blog地址：<a href="https://username.github.io" target="_blank" rel="external">https://username.github.io</a></li>
 </ol>
 </li>
 <li><p>新建及更新博客</p>
 <ol>
-<li>新建：<code>hexo new &quot;filename&quot;</code></li>
+<li>新建：<code>$ hexo new &quot;filename&quot;</code></li>
 <li>此时在bolg/source/_posts/下面会看到新建的博客，文件：filename.md，用Typora打开编辑即可</li>
-<li>更新：<code>hexo g -d</code></li>
-<li>删除博客：在bolg/source/_posts/中删除对应.md文件，<code>hexo clean</code>即可。</li>
+<li>更新：<code>$ hexo g -d</code></li>
+<li>删除博客：在bolg/source/_posts/中删除对应.md文件，<code>$ hexo clean</code>即可。</li>
 </ol>
+</li>
+<li><p><strong>注意</strong>：新建及更新博客时，必须将路径切换至blog中，即先执行：<code>$ cd ~/blog</code>。 </p>
 </li>
 </ol>
 </li>

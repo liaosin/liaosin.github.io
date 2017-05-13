@@ -6,19 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LiaoSin&#39;s Blog</title>
+  <title>Andrew Ng-机器学习笔记（02） | LiaoSin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="机器学习模型的表达符号定义$m$：训练集数量 $x$：输入变量/特征，每个训练实例有$n$个特征数量 $y$：输出值/目标值 $(x^{(i)},y^{(i)})$：第$i$个训练实例 $h\\_{\\\\theta}(x)$：假设函数 $\\theta_0,\\theta_1$：参数 $J(\\theta_0,\\theta_1)$：损失函数 $min\\_{\\\\theta\\_0,\\\\">
-<meta name="keywords">
+  <meta name="description" content="机器学习模型的表达符号定义$m$：训练集数量$x$：输入变量/特征，每个训练实例有$n$个特征数量$y$：输出值/目标值$(x^{(i)},y^{(i)})$：第$i$个训练实例$h_{\theta}(x)$：假设函数（对于一维数据而言，$h_{\theta}(x)=\theta_0+\theta_1 x$）$\theta_0,\theta_1$：参数$J(\theta_0,\theta_1)$：">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LiaoSin's Blog">
+<meta property="og:title" content="Andrew Ng-机器学习笔记（02）">
 <meta property="og:url" content="http://yoursite.com/2017/05/13/Andrew Ng-机器学习笔记（02）/index.html">
 <meta property="og:site_name" content="LiaoSin's Blog">
-<meta property="og:description" content="机器学习模型的表达符号定义$m$：训练集数量 $x$：输入变量/特征，每个训练实例有$n$个特征数量 $y$：输出值/目标值 $(x^{(i)},y^{(i)})$：第$i$个训练实例 $h\\_{\\\\theta}(x)$：假设函数 $\\theta_0,\\theta_1$：参数 $J(\\theta_0,\\theta_1)$：损失函数 $min\\_{\\\\theta\\_0,\\\\">
-<meta property="og:updated_time" content="2017-05-12T22:43:14.000Z">
+<meta property="og:description" content="机器学习模型的表达符号定义$m$：训练集数量$x$：输入变量/特征，每个训练实例有$n$个特征数量$y$：输出值/目标值$(x^{(i)},y^{(i)})$：第$i$个训练实例$h_{\theta}(x)$：假设函数（对于一维数据而言，$h_{\theta}(x)=\theta_0+\theta_1 x$）$\theta_0,\theta_1$：参数$J(\theta_0,\theta_1)$：">
+<meta property="og:image" content="http://yoursite.com/2017/05/13/Andrew%20Ng-机器学习笔记（02）/EBFA59EE7AE6195BC5F510DC819596BF.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/13/Andrew%20Ng-机器学习笔记（02）/764A4200635EECF2A979FB272ADCA947.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/13/Andrew%20Ng-机器学习笔记（02）/98754C169D12CD63DEE1721DD937F92E.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/13/Andrew%20Ng-机器学习笔记（02）/A7095977F13369707B2472963CE65EE3.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/13/Andrew%20Ng-机器学习笔记（02）/61F618D69F9C131F2D28204DE001DA41.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/13/Andrew%20Ng-机器学习笔记（02）/3F484C8CA27D9CA967EF87E4EE8A9F67.jpg">
+<meta property="og:updated_time" content="2017-05-13T12:46:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LiaoSin's Blog">
-<meta name="twitter:description" content="机器学习模型的表达符号定义$m$：训练集数量 $x$：输入变量/特征，每个训练实例有$n$个特征数量 $y$：输出值/目标值 $(x^{(i)},y^{(i)})$：第$i$个训练实例 $h\\_{\\\\theta}(x)$：假设函数 $\\theta_0,\\theta_1$：参数 $J(\\theta_0,\\theta_1)$：损失函数 $min\\_{\\\\theta\\_0,\\\\">
+<meta name="twitter:title" content="Andrew Ng-机器学习笔记（02）">
+<meta name="twitter:description" content="机器学习模型的表达符号定义$m$：训练集数量$x$：输入变量/特征，每个训练实例有$n$个特征数量$y$：输出值/目标值$(x^{(i)},y^{(i)})$：第$i$个训练实例$h_{\theta}(x)$：假设函数（对于一维数据而言，$h_{\theta}(x)=\theta_0+\theta_1 x$）$\theta_0,\theta_1$：参数$J(\theta_0,\theta_1)$：">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/13/Andrew%20Ng-机器学习笔记（02）/EBFA59EE7AE6195BC5F510DC819596BF.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LiaoSin&#39;s Blog" type="application/atom+xml">
   
@@ -149,10 +156,33 @@
             <article id="post-Andrew Ng-机器学习笔记（02）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Andrew Ng-机器学习笔记（02）
+    </h1>
+  
+
+        
+        <a href="/2017/05/13/Andrew Ng-机器学习笔记（02）/" class="archive-article-date">
+  	<time datetime="2017-05-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-13</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="机器学习模型的表达"><a href="#机器学习模型的表达" class="headerlink" title="机器学习模型的表达"></a>机器学习模型的表达</h1><h2 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h2><p>$m$：训练集数量<br> $x$：输入变量/特征，每个训练实例有$n$个特征数量<br> $y$：输出值/目标值<br> $(x^{(i)},y^{(i)})$：第$i$个训练实例 $h\\_{\\\\theta}(x)$：假设函数 $\\theta_0,\\theta_1$：参数 $J(\\theta_0,\\theta_1)$：损失函数 $min\\_{\\\\theta\\_0,\\\\theta\\_1}J(\\\\theta\\_0,\\\\theta\\_1)$：目标函数，通过最优化方法求取$\\\\theta\\_0,\\\\theta\\_1$使得损失函数$J(\\\\theta\\_0,\\\\theta\\_1)$达到最小值</p>
-<h1 id="机器学习模型的表达-1"><a href="#机器学习模型的表达-1" class="headerlink" title="机器学习模型的表达"></a>机器学习模型的表达</h1><h2 id="符号定义-1"><a href="#符号定义-1" class="headerlink" title="符号定义"></a>符号定义</h2><p>$m$：训练集数量，行数<br>$x$：输入变量或特征，每个训练实例有$n$个特征，列数<br>$y$：输出值或目标值<br>$(x^{(i)},y^{(i)})$：第$i$个训练实例<br>$h\\\theta}(x)$：假设函数<br>$\theta\0,\\theta_1$：参数<br> $J(\theta_0,\theta_1)$：<br> 损失函数 </p>
+        <h1 id="机器学习模型的表达"><a href="#机器学习模型的表达" class="headerlink" title="机器学习模型的表达"></a>机器学习模型的表达</h1><h2 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h2><p>$m$：训练集数量<br>$x$：输入变量/特征，每个训练实例有$n$个特征数量<br>$y$：输出值/目标值<br>$(x^{(i)},y^{(i)})$：第$i$个训练实例<br>$h_{\theta}(x)$：假设函数（对于一维数据而言，$h_{\theta}(x)=\theta_0+\theta_1 x$）<br>$\theta_0,\theta_1$：参数<br>$J(\theta_0,\theta_1)$：损失函数，$J(\theta_0,\theta_1)=\frac{1}{2m} \sum_{i=1}^m (h_{\theta}(x^{(i)})-y^{(i)})^2$<br>$min_{\theta_0,\theta_1}J(\theta_0,\theta_1)$：目标函数，通过最优化方法求取$\theta_0,\theta_1$使得损失函数$J(\theta_0,\theta_1)$达到最小值</p>
+<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2><p>使用梯度下降法求取$\theta_0,\theta_1$，具体为：<br><strong> $\theta_j := \theta_j-\alpha. \frac{\partial}{\partial\theta_j}J(\theta_0,\theta_1)$   (for j=0 and j=1)</strong><br><strong>⚠️编程时，所有变量更新完后再进行赋值；否则会造成误更新</strong><br>上式中，$\alpha$为学习率（为正数）。<br>1）在此解释，为何$\alpha$之前为负号。<br>定义：$B=\frac{\partial}{\partial\theta_j}J(\theta_0,\theta_1)$</p>
+<p><img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/EBFA59EE7AE6195BC5F510DC819596BF.jpg" alt=""> <img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/764A4200635EECF2A979FB272ADCA947.jpg" alt=""></p>
+<p>若$B&gt;0,\alpha.B&gt;0$时，$\theta$则往小值方向更替，如左图；<br>若$B&lt;0,\alpha.B&lt;0$时，$\theta$则往大值方向更替，如右图。<br>2）关于学习率$\alpha$的选取问题</p>
+<p><img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/98754C169D12CD63DEE1721DD937F92E.jpg" alt=""> <img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/A7095977F13369707B2472963CE65EE3.jpg" alt=""></p>
+<p>若$\alpha$过小，则寻优速度较慢，所需时间较长；<br>若$\alpha$过大，则可能导致跳跃过平衡点，逐步发散。<br>3）关于寻优问题<br>梯度下降法寻优，很有可能导致寻找至局部最优点。</p>
+<p><img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/61F618D69F9C131F2D28204DE001DA41.jpg" alt=""></p>
+<p>（上图为全局最优点）</p>
+<p><img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/3F484C8CA27D9CA967EF87E4EE8A9F67.jpg" alt=""></p>
+<p>（上图为局部最优点）</p>
 
       
 
@@ -161,6 +191,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       

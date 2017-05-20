@@ -6,25 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LiaoSin&#39;s Blog</title>
+  <title>Andrew Ng-机器学习笔记（03） | LiaoSin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="符号定义$m$：训练集数量$n$：特征数量，上图中为4$X$：训练集特征矩阵，$m \times (n+1)$$Y$：训练集输出向量，$m \times 1$$X^{(i)}$：第$i^{th}$个输入变量（或特征向量）$X^{(i)}_j$：第$i^{th}$特征向量的第$j$个特征，如$X^{(2)}_3=2$上图的假设函数：$h_{\theta}(X)=\theta_0+\theta_1">
-<meta name="keywords">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LiaoSin's Blog">
-<meta property="og:url" content="http://yoursite.com/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2 2）/index.html">
+<meta property="og:title" content="Andrew Ng-机器学习笔记（03）">
+<meta property="og:url" content="http://yoursite.com/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2:2）/index.html">
 <meta property="og:site_name" content="LiaoSin's Blog">
 <meta property="og:description" content="符号定义$m$：训练集数量$n$：特征数量，上图中为4$X$：训练集特征矩阵，$m \times (n+1)$$Y$：训练集输出向量，$m \times 1$$X^{(i)}$：第$i^{th}$个输入变量（或特征向量）$X^{(i)}_j$：第$i^{th}$特征向量的第$j$个特征，如$X^{(2)}_3=2$上图的假设函数：$h_{\theta}(X)=\theta_0+\theta_1">
-<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2%202）/7E731B29EF8DB3EA51F5CBC037B2011C.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2%202）/A62019F2C3D6D982EA382B797DB0A97A.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2%202）/EC26DDF8C6348E99B521A03570FA34D1.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2%202）/A20013F67C3192E2D3F95BD6BD3886D9.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2%202）/127062D6FE7D62D923EC3E3E39373E0A.jpg">
-<meta property="og:updated_time" content="2017-05-20T23:15:31.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/7E731B29EF8DB3EA51F5CBC037B2011C.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/A62019F2C3D6D982EA382B797DB0A97A.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/EC26DDF8C6348E99B521A03570FA34D1.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/A20013F67C3192E2D3F95BD6BD3886D9.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/127062D6FE7D62D923EC3E3E39373E0A.jpg">
+<meta property="og:updated_time" content="2017-05-20T23:17:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LiaoSin's Blog">
+<meta name="twitter:title" content="Andrew Ng-机器学习笔记（03）">
 <meta name="twitter:description" content="符号定义$m$：训练集数量$n$：特征数量，上图中为4$X$：训练集特征矩阵，$m \times (n+1)$$Y$：训练集输出向量，$m \times 1$$X^{(i)}$：第$i^{th}$个输入变量（或特征向量）$X^{(i)}_j$：第$i^{th}$特征向量的第$j$个特征，如$X^{(2)}_3=2$上图的假设函数：$h_{\theta}(X)=\theta_0+\theta_1">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2%202）/7E731B29EF8DB3EA51F5CBC037B2011C.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/7E731B29EF8DB3EA51F5CBC037B2011C.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LiaoSin&#39;s Blog" type="application/atom+xml">
   
@@ -152,12 +152,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Andrew Ng-机器学习笔记（03）-线性回归（2 2）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Andrew Ng-机器学习笔记（03）-线性回归（2:2）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Andrew Ng-机器学习笔记（03）
+    </h1>
+  
+
+        
+        <a href="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2:2）/" class="archive-article-date">
+  	<time datetime="2017-05-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-21</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2 2）/7E731B29EF8DB3EA51F5CBC037B2011C.jpg" alt=""></p>
+        <p><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2:2）/7E731B29EF8DB3EA51F5CBC037B2011C.jpg" alt=""></p>
 <h2 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h2><p>$m$：训练集数量<br>$n$：特征数量，上图中为4<br>$X$：训练集特征矩阵，$m \times (n+1)$<br>$Y$：训练集输出向量，$m \times 1$<br>$X^{(i)}$：第$i^{th}$个输入变量（或特征向量）<br>$X^{(i)}_j$：第$i^{th}$特征向量的第$j$个特征，如$X^{(2)}_3=2$<br>上图的假设函数：$h_{\theta}(X)=\theta_0+\theta_1 x_1+\theta_2 x_2 + \theta_3 x_3 + \theta_4 x_4$<br><strong>定义（与Andrew Ng不同，本文定义更适合于编程）：</strong><br>$x_0=1$<br>$X^{(i)}=\begin{bmatrix} x_0&amp; x_1&amp; x_2&amp; …&amp; x_n \end{bmatrix} \in \mathbf{R}^{1 \times (n+1)}$<br>$\Theta=\begin{bmatrix} \theta_0\ \theta_1\ \theta_2\  …\ \theta_n \end{bmatrix} \in \mathbf{R}^{(n+1) \times 1}$<br>假设函数：$h_{\theta}(x)_{m \times 1}=X_{m \times (n+1)} \Theta_{(n+1) \times 1}$</p>
 <h2 id="问题描述及求解"><a href="#问题描述及求解" class="headerlink" title="问题描述及求解"></a>问题描述及求解</h2><ul>
 <li>假设函数：$h_{\theta}(x)=X \Theta$</li>
@@ -172,16 +187,16 @@
 <h2 id="学习率-alpha"><a href="#学习率-alpha" class="headerlink" title="学习率$\alpha$"></a>学习率$\alpha$</h2><ul>
 <li>残差$J$必须逐步下降(不小于$10^{-3}$) </li>
 </ul>
-<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2 2）/A62019F2C3D6D982EA382B797DB0A97A.jpg" alt=""></p>
+<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2:2）/A62019F2C3D6D982EA382B797DB0A97A.jpg" alt=""></p>
 <ul>
 <li>学习率$\alpha$过大容易造成残差发散或振荡</li>
 </ul>
-<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2 2）/EC26DDF8C6348E99B521A03570FA34D1.jpg" alt=""><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2 2）/A20013F67C3192E2D3F95BD6BD3886D9.jpg" alt=""></p>
+<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2:2）/EC26DDF8C6348E99B521A03570FA34D1.jpg" alt=""><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2:2）/A20013F67C3192E2D3F95BD6BD3886D9.jpg" alt=""></p>
 <ul>
 <li>学习率$\alpha$过小容易造成残差收敛过慢，消耗内存过多</li>
 <li><strong>学习率$\alpha$选择：0.001、0.003、0.01、0.03、0.1、0.3、1、……</strong><h2 id="特征的构建"><a href="#特征的构建" class="headerlink" title="特征的构建"></a>特征的构建</h2>在构建假设函数$h_{\theta}(X)$时纯粹地选择一个个特征可能仍无法满足很好的效果，此时应观察自变量-应变量之间的关系，人为构建特征。<br>如下图所示：$h_{\theta}(X)=\theta_0+\theta_1 x$将导致较大误差，可采用下式进行构建：$h_{\theta}(X)=\theta_0+\theta_1 x_1+\theta_2 x_2+\theta_3 x_3…$<br>上式中，$x_1=x, x_2=x^2, x_3=x^3…$</li>
 </ul>
-<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2 2）/127062D6FE7D62D923EC3E3E39373E0A.jpg" alt=""></p>
+<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2:2）/127062D6FE7D62D923EC3E3E39373E0A.jpg" alt=""></p>
 
       
 
@@ -190,6 +205,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -240,7 +266,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2 2）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2:2）/" alt="微信分享二维码">
     </div>
 </div>
 

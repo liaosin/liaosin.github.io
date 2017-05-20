@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Andrew Ng-机器学习笔记（03） | LiaoSin&#39;s Blog</title>
+  <title>Andrew Ng-机器学习笔记（03）-线性回归（2/2） | LiaoSin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="符号定义$m$：训练集数量$n$：特征数量，上图中为4$X$：训练集特征矩阵，$m \times (n+1)$$Y$：训练集输出向量，$m \times 1$$X^{(i)}$：第$i^{th}$个输入变量（或特征向量）$X^{(i)}_j$：第$i^{th}$特征向量的第$j$个特征，如$X^{(2)}_3=2$上图的假设函数：$h_{\theta}(X)=\theta_0+\theta_1">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Andrew Ng-机器学习笔记（03）">
+<meta property="og:title" content="Andrew Ng-机器学习笔记（03）-线性回归（2/2）">
 <meta property="og:url" content="http://yoursite.com/2017/05/21/Andrew Ng-机器学习笔记（03）-线性回归（2:2）/index.html">
 <meta property="og:site_name" content="LiaoSin's Blog">
 <meta property="og:description" content="符号定义$m$：训练集数量$n$：特征数量，上图中为4$X$：训练集特征矩阵，$m \times (n+1)$$Y$：训练集输出向量，$m \times 1$$X^{(i)}$：第$i^{th}$个输入变量（或特征向量）$X^{(i)}_j$：第$i^{th}$特征向量的第$j$个特征，如$X^{(2)}_3=2$上图的假设函数：$h_{\theta}(X)=\theta_0+\theta_1">
@@ -20,9 +20,9 @@
 <meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/EC26DDF8C6348E99B521A03570FA34D1.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/A20013F67C3192E2D3F95BD6BD3886D9.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/127062D6FE7D62D923EC3E3E39373E0A.jpg">
-<meta property="og:updated_time" content="2017-05-20T23:17:25.000Z">
+<meta property="og:updated_time" content="2017-05-20T23:23:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andrew Ng-机器学习笔记（03）">
+<meta name="twitter:title" content="Andrew Ng-机器学习笔记（03）-线性回归（2/2）">
 <meta name="twitter:description" content="符号定义$m$：训练集数量$n$：特征数量，上图中为4$X$：训练集特征矩阵，$m \times (n+1)$$Y$：训练集输出向量，$m \times 1$$X^{(i)}$：第$i^{th}$个输入变量（或特征向量）$X^{(i)}_j$：第$i^{th}$特征向量的第$j$个特征，如$X^{(2)}_3=2$上图的假设函数：$h_{\theta}(X)=\theta_0+\theta_1">
 <meta name="twitter:image" content="http://yoursite.com/2017/05/21/Andrew%20Ng-机器学习笔记（03）-线性回归（2:2）/7E731B29EF8DB3EA51F5CBC037B2011C.jpg">
   
@@ -159,7 +159,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Andrew Ng-机器学习笔记（03）
+      Andrew Ng-机器学习笔记（03）-线性回归（2/2）
     </h1>
   
 
@@ -178,7 +178,7 @@
 <li>假设函数：$h_{\theta}(x)=X \Theta$</li>
 <li>参数：$\Theta$</li>
 <li>损失函数：<br>  $J(\Theta)=\frac{1}{2m} \sum_{i=1}^m (h_{\theta}(x^{(i)})-y^{(i)})^2$<br>  =&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;<br>  $J(\Theta)=\frac{1}{2m} (X \Theta - Y)^T \cdot (X \Theta - Y)$</li>
-<li>梯度下降：<br>  $\theta_j := \theta_j-\alpha \frac{\partial}{\partial\theta_j}J(\boldsymbol{\theta})$<br>  =&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;<br>  $\theta_j := \theta_j- \alpha \frac{1}{2m} \left\{ X^T \cdot (X \Theta - Y) + (X \Theta - Y)^T \cdot X \right\}$<br>  $\theta_j := \theta_j- \alpha \frac{1}{m} X^T \cdot (X \Theta - Y)$<br>⚠️1：$\frac{\partial}{\partial \boldsymbol{\Theta}}J(\boldsymbol{\Theta})=2 X^T \cdot (X \Theta - Y)$<br>⚠️2：由$X^T X \Theta-X^T Y=0$，且$(X^T X)$可逆，则可直接求解参数$\Theta=(X^T X)^{-1} X^T Y$</li>
+<li>梯度下降：<br>  $\theta_j := \theta_j-\alpha \frac{\partial}{\partial\theta_j}J(\boldsymbol{\theta})$<br>  =&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;<br>  $\theta_j := \theta_j- \alpha \frac{1}{2m} \left\{ X^T \cdot (X \Theta - Y) + (X \Theta - Y)^T \cdot X \right\}$<br>  $\theta_j := \theta_j- \alpha \frac{1}{m} X^T \cdot (X \Theta - Y)$<br>  ⚠️1：$\frac{\partial}{\partial \boldsymbol{\Theta}}J(\boldsymbol{\Theta})=2 X^T \cdot (X \Theta - Y)$<br>  ⚠️2：由$X^T X \Theta-X^T Y=0$，且$(X^T X)$可逆，则可直接求解参数$\Theta=(X^T X)^{-1} X^T Y$</li>
 </ul>
 <h2 id="特征缩放"><a href="#特征缩放" class="headerlink" title="特征缩放"></a>特征缩放</h2><p>不同特征之间量纲不同、数值范围不一致，相差悬殊时容易造成$\theta_j$之间差异极大，因此必须进行“特征缩放”。</p>
 <ul>
@@ -284,7 +284,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Andrew Ng-机器学习笔记（02）
+          Andrew Ng-机器学习笔记（02）-线性回归（1/2）
         
       </div>
     </a>

@@ -146,6 +146,179 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Andrew Ng-机器学习笔记（06）-神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/23/Andrew Ng-机器学习笔记（06）-神经网络/">Andrew Ng-机器学习笔记（03）-神经网络</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/23/Andrew Ng-机器学习笔记（06）-神经网络/" class="archive-article-date">
+  	<time datetime="2017-05-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>采用$x_1=x, x_2=x^2, x_3=x^3…$等多项式构建特征时，进行线性回归或逻辑回归，可以很好的拟合非线性问题。但是，此时将导致维数过高，容易造成计算时内存溢出！</p>
+<p><img src="/2017/05/23/Andrew Ng-机器学习笔记（06）-神经网络/3FD0375CB042DF56C1106CA3531D7BC6.jpg" alt=""></p>
+<p>Layer 1为输入层；Layer 2为隐藏层；Layer 3为输出层。<br>在除输出层外的其他层中，均会引入偏置项（各层下标为0的项）；在除输入层的其他层中，各⭕️均为一个响应函数（本课程中默认为sigmoid函数$g(z)$），存在一个输入，⭕️中标注的为输出。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>$L$ : 神经网络总层数；<br>$K$ : 输出层的输出变量数量；<br>$S_j$ : 第j层所含单元数量；($K=S_L$)<br>$a_i^{(j)}$ : 第j层第i个单元的输出；<br>$z_i^{(j)}$ : 第j层第i个单元的输入；<br>$a^{(j)}$ : 第j层输出向量（未含偏置）；<br>$z^{(j)}$ : 第j层输入向量（未含偏置）；<br>$b^{(j)}$ : 第j层的偏置；<br>$\Theta^{(j)}$ : 第j层向第(j+1)层的权重向量；维数: $S_{j+1}*(S_{j}+1)$；<br>$\Theta_{kn}^{(j)}$ : 第j层第n个单元向第(j+1)层第k个单元的权重向量；<br>$g(z)$ : sigmoid函数，$g(z)=\frac{1}{1+e^{-z}}$，其求导如下：<br>$$<br>\begin{align}<br>g’(z) &amp; =(-1)\cdot\frac{1}{(1+e^{-z})^2}\cdot e^{-z}\cdot (-1)\\<br>&amp; =\frac{1}{(1+e^{-z})^2}\cdot e^{-z}\\<br>&amp; =\frac{1}{1+e^{-z}}\cdot (1-\frac{1}{1+e^{-z}})\\<br>&amp; = g(z)\cdot (1-g(z))<br>\end{align}<br>$$</p>
+<h2 id="神经网络模型"><a href="#神经网络模型" class="headerlink" title="神经网络模型"></a>神经网络模型</h2><p>$$<br>\begin{cases}<br>    z^{(j+1)}=\Theta^{(j)}*<br>        \begin{bmatrix}<br>            b^{(j)} \\<br>            a^{(j)}<br>        \end{bmatrix}\\<br>    a^{(j+1)}=g(z^{(j+1)})<br>\end{cases}<br>$$</p>
+<p><img src="/2017/05/23/Andrew Ng-机器学习笔记（06）-神经网络/5A529461DD0D2369BFAA91A4C1BACFC5.jpg" alt=""></p>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>可采用类似逻辑回归的损失函数（含$\lambda$），但是为了便于反向传播算法的推导，本文仅采取输出方差即可。<br>$$<br>J(\Theta)=\frac{1}{2}\sum_{k\in K}(a_k^{(L)}-y_k)^2<br>$$</p>
+<h2 id="反向传播算法"><a href="#反向传播算法" class="headerlink" title="反向传播算法"></a>反向传播算法</h2><p>为了求取权重向量中各个参数，可采用反向传播算法，本文推导具体模型：</p>
+<h3 id="输出层（Layer-3）权重的求导"><a href="#输出层（Layer-3）权重的求导" class="headerlink" title="输出层（Layer 3）权重的求导"></a>输出层（Layer 3）权重的求导</h3><p>$$<br>\begin{align}<br>\frac{\partial }{\partial\Theta_{kn}^{(L)}} J(\Theta) &amp; =\frac{\partial}{\partial\Theta_{kn}^{(L)}} (\frac{1}{2}\sum_{k\in K}(a_k^{(L)}-y_k)^2)\\<br>&amp; =\frac{1}{2}\cdot2\cdot(a_k^{(L)}-y_k)\cdot \frac{\partial a_k^{(L)}}{\partial\Theta_{kn}^{(L)}}\\<br>&amp; =(a_k^{(L)}-y_k)\cdot \frac{\partial g(z_k^{(L)})}{\partial \Theta_{kn}^{(L)}}\\<br>&amp; =(a_k^{(L)}-y_k)\cdot \frac{\partial g(z_k^{(L)})}{\partial z_k^{(L)}}<br>\cdot \frac{\partial z_k^{(L)}}{\partial \Theta_{kn}^{(L)}}<br>\end{align}<br>$$<br>上式中：</p>
+<ul>
+<li>$\frac{\partial g(z_k^{(L)})}{\partial z_k^{(L)}}=g(z_k^{(L)})\cdot (1-g(z_k^{(L)}))=a_k^{(L)}\cdot(1-a_k^{(L)})$</li>
+<li>$\frac{\partial z_k^{(L)}}{\partial \Theta_{kn}^{(L)}} =a_n^{(L-1)}$</li>
+<li>定义：$\delta^{(L)}=(a_k^{(L)}-y_k)\cdot a_k^{(L)}\cdot(1-a_k^{(L)})$<br>$$<br>\begin{align}<br>\frac{\partial }{\partial\Theta_{kn}^{(L)}} J(\Theta) &amp; =(a_k^{(L)}-y_k)\cdot a_k^{(L)}\cdot(1-a_k^{(L)})\cdot a_n^{(L-1)}\\<br>&amp; = \delta^{(L)} \cdot a_n^{(L-1)}<br>\end{align}<br>$$</li>
+</ul>
+<h3 id="隐藏层（Layer-2）权重的求导"><a href="#隐藏层（Layer-2）权重的求导" class="headerlink" title="隐藏层（Layer 2）权重的求导"></a>隐藏层（Layer 2）权重的求导</h3><p>$$<br>\begin{align}<br>\frac{\partial }{\partial\Theta_{kn}^{(j)}} J(\Theta) &amp; =\frac{\partial}{\partial\Theta_{kn}^{(j)}} (\frac{1}{2}\sum_{k\in K}(a_k^{(L)}-y_k)^2)\\<br>&amp; =\frac{1}{2}\cdot2\cdot\sum_{k\in K}(a_k^{(L)}-y_k)\cdot \frac{\partial a_k^{(L)}}{\partial\Theta_{kn}^{(j)}}\\<br>&amp; =\sum_{k\in K}(a_k^{(L)}-y_k)\cdot \frac{\partial g(z_k^{(L)})}{\partial \Theta_{kn}^{(j)}}\\<br>&amp; =\sum_{k\in K}(a_k^{(L)}-y_k)\cdot \frac{\partial g(z_k^{(L)})}{\partial z_k^{(L)}}<br>\cdot \frac{\partial z_k^{(L)}}{\partial \Theta_{kn}^{(j)}}<br>\end{align}<br>$$<br>上式中:</p>
+<ul>
+<li>$\frac{\partial z_k^{(L)}}{\partial \Theta_{kn}^{(j)}} =\frac{\partial z_k^{(L)}}{\partial a_k^{(j)}}<br>\cdot \frac{\partial a_k^{(j)}}{\partial \Theta_{kn}^{(j)}}=\sum_{k\in K}(a_k^{(L)}-y_k)\cdot \frac{\partial g(z_k^{(L)})}{\partial \Theta_{kn}^{(j)}}=\sum_{k\in K}(a_k^{(L)}-y_k)\cdot \frac{\partial g(z_k^{(L)})}{\partial z_k^{(L)}}<br>\cdot \frac{\partial z_k^{(L)}}{\partial \Theta_{kn}^{(L)}}$</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/23/Andrew Ng-机器学习笔记（06）-神经网络/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Andrew Ng-机器学习笔记（05）-过拟合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/22/Andrew Ng-机器学习笔记（05）-过拟合/">Andrew Ng-机器学习笔记（05）-过拟合</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/22/Andrew Ng-机器学习笔记（05）-过拟合/" class="archive-article-date">
+  	<time datetime="2017-05-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="拟合问题"><a href="#拟合问题" class="headerlink" title="拟合问题"></a>拟合问题</h2><ul>
+<li>假设函数对训练集无法恰当拟合时，将导致<strong>欠拟合</strong></li>
+<li>假设函数对训练集过分拟合时，将导致<strong>过拟合</strong></li>
+<li>下图中：左图为欠拟合、恰当拟合、过拟合</li>
+</ul>
+<p><img src="/2017/05/22/Andrew Ng-机器学习笔记（05）-过拟合/2D4962A710A7641B3AC1FCAE88FB65D6.jpg" alt=""></p>
+<h2 id="过拟合解决方法"><a href="#过拟合解决方法" class="headerlink" title="过拟合解决方法"></a>过拟合解决方法</h2><ul>
+<li>减少特征数量<ul>
+<li>人为选择需要保留对特征，将认为没必要的去除</li>
+<li>通过模型选择（如后文将阐述的PCA）</li>
+</ul>
+</li>
+<li>参数归一化<ul>
+<li>保留所有特征，但降低参数$\theta_j$的幅值。（由于不好明确确认哪个参数的幅值需要降低，因此对所有参数统一降低）</li>
+</ul>
+</li>
+</ul>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>进行归一化后，线性回归的损失函数由$J(\theta_0,\theta_1)=\frac{1}{2m} \sum_{i=1}^m (h_{\theta}(x^{(i)})-y^{(i)})^2$调整为$J(\theta_0,\theta_1)=\frac{1}{2m} \{\sum_{i=1}^m (h_{\theta}(x^{(i)})-y^{(i)})^2 +\lambda \sum_{j=1}^n \theta_j^2\}$。⚠️：$\theta$是由1至n，而不是0至n。<br>矢量表示形式也进行相应由$J(\Theta)=\frac{1}{2m} (X \Theta - Y)^T \cdot (X \Theta - Y)$调整至$J(\Theta)=\frac{1}{2m} \{(X \Theta - Y)^T \cdot (X \Theta - Y) +\lambda \Theta_1^T \Theta_1\}$<br>上式中，$\lambda$即为归一化参数，其取值将影响假设函数对训练集的拟合状态。（$\Theta_1=\begin{bmatrix} \theta_1&amp; \theta_2&amp;  …&amp; \theta_n \end{bmatrix}^T \in \mathbf{R}^{n \times 1}$）</p>
+<ul>
+<li>$\lambda$过大时，$\theta_j(j\in(1,n))$将很小，乃至于为零，此时假设函数经寻优后确定为$h_{\theta}(x)=\theta_0$，进而导致<strong>欠拟合</strong>。</li>
+<li>$\lambda$过小时，$\theta_j(j\in(1,n))$将很大，此时假设函数经寻优后确定为$h_{\theta}(x)=\theta_0 + \theta_1 x_1 + ……$，进而导致<strong>过拟合</strong>。</li>
+<li>梯度计算时$j\in(1,n)$，<br>$\theta_0 := \theta_0 + \alpha \frac{1}{m} \sum_{i=1}^m(h_{\theta}(x^{(i)})-y^{(i)}) x_0^{(i)}$<br>$\theta_j := \theta_j + \alpha \frac{1}{m} \sum_{i=1}^m(h_{\theta}(x^{(i)})-y^{(i)}) x_j^{(i)} + \lambda \frac{1}{m}\theta_j$</li>
+<li>梯度矢量计算：$\Theta=(X^T X +\lambda_1 )^{-1} X^T Y$。$\lambda_1$为$\lambda$与$(n+1)\times (n+1)$单位矩阵相乘，并将第一元素置零的矩阵。</li>
+</ul>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><ul>
+<li>损失函数：$J(\theta)=-\frac{1}{m}\sum_{i=1}^m[y^{(i)} log(h_{\theta}(x^{(i)}))+(1-y^{(i)})log(1-h_{\theta}(x^{(i)}))+ \lambda \frac{1}{2m} \sum_{j=1}^n \theta_j^2]$</li>
+<li>损失函数矢量：<ul>
+<li>$H_{m \times 1}=h_{\theta}(x)$</li>
+<li>$J(\theta)=-\frac{1}{m}(Y^T log(H)+(1-Y)^T log(1-H) + \frac{\lambda}{2} \Theta_1^T \Theta_1)$</li>
+</ul>
+</li>
+<li>梯度计算：与线性回归一致。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/22/Andrew Ng-机器学习笔记（05）-过拟合/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Andrew Ng-机器学习笔记（03）-线性回归（2:2）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -252,7 +425,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>线性回归无法准确描述分类（不是0就是1）的问题，因此引入了逻辑回归。同时逻辑回归可以给出很好的“概率”描述，比较贴近于实际。<br>逻辑函数：$g(z)=\frac{1}{1+e^{-z}}$</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>线性回归无法准确描述分类（不是0就是1）的问题，因此引入了逻辑回归。同时逻辑回归可以给出很好的“概率”描述，比较贴近于实际。<br>sigmoid函数：$g(z)=\frac{1}{1+e^{-z}}$</p>
 <p><img src="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/2F855CD5B206F9349003A3747D733E3A.jpg" alt=""></p>
 <h2 id="假设函数"><a href="#假设函数" class="headerlink" title="假设函数"></a>假设函数</h2><p>$h_{\theta}(x)=g(X \Theta)=\frac{1}{1+e^{(-X \Theta)}}$<br>$h_{\theta}(x)$：在输入x的情况下，输出y=1的概率。即，$h_{\theta}(x)=P(y=1|x;\theta)$<br>存在：$P(y=0|x;\theta)=1-P(y=1|x;\theta)$</p>
 <h2 id="决策界"><a href="#决策界" class="headerlink" title="决策界"></a>决策界</h2><p>当$z&gt;0,g(z)&gt;0.5;\theta^T x&gt;0,h_{\theta}(x)&gt;0.5,y=1$<br>当$z&lt;0,g(z)&lt;0.5;\theta^T x&lt;0,h_{\theta}(x)&lt;0.5,y=0$</p>

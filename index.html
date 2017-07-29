@@ -168,7 +168,7 @@
       
         <p>升级 mac 系统后，在 terminal 中启动 jupyter 时系统总报错，并且不能自动启动 Safari 进入 notebook 。必须认为打开 safari ，在地址栏中输入 <a href="http://localhost:8888/tree" target="_blank" rel="external">http://localhost:8888/tree</a> 才能生效，比较墨迹。先找到解决方案为：</p>
 <p>1）在 terminal 中执行 “ jupyter notebook –generate-config ” 以生成 ~/.jupyter_notebook_config.py 文件</p>
-<p>2）在 terminal 中执行 open 该文件。（该文件路径不好找，只好用 open 了）</p>
+<p>2）在 terminal 中执行 open 该文件。（该文件路径【 /Users/liaosin/.jupyter/jupyter_notebook_config.py】不好找，只好用 open 了 ）</p>
 <p>3）在该文件最尾端 加入如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">c.NotebookApp.browser = u&apos;Safari&apos;</div><div class="line">c.NotebookApp.token = &apos;&apos;</div><div class="line">c.NotebookApp.password = &apos;&apos;</div></pre></td></tr></table></figure>
 <p>4）在terminal 中执行 “ jupyter notebook “ 即可。</p>

@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>GitHub Desktop error | LiaoSin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="初次安装Mac GitHub Desktop将无法使用 publish，报故“Please check your internet connection ……”。 该问题可能是由于GitHub的SSH配置不当所致。 解决方法： 1）termianl 中执行： -T git@github.com```12342）一般可见如下回告：```The authenticity of host &amp;apos;g">
+  <meta name="description" content="初次安装Mac GitHub Desktop将无法使用 publish，报故“Please check your internet connection ……”。 该问题可能是由于GitHub的SSH配置不当所致。 解决方法： 1）termianl 中执行： ssh -T git@github.com 2）一般可见如下回告： authenticity of host &apos;github.com (19">
 <meta name="keywords" content="GitHub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub Desktop error">
 <meta property="og:url" content="http://yoursite.com/2017/08/01/github-desktop-error/index.html">
 <meta property="og:site_name" content="LiaoSin's Blog">
-<meta property="og:description" content="初次安装Mac GitHub Desktop将无法使用 publish，报故“Please check your internet connection ……”。 该问题可能是由于GitHub的SSH配置不当所致。 解决方法： 1）termianl 中执行： -T git@github.com```12342）一般可见如下回告：```The authenticity of host &amp;apos;g">
-<meta property="og:updated_time" content="2017-07-31T22:39:01.000Z">
+<meta property="og:description" content="初次安装Mac GitHub Desktop将无法使用 publish，报故“Please check your internet connection ……”。 该问题可能是由于GitHub的SSH配置不当所致。 解决方法： 1）termianl 中执行： ssh -T git@github.com 2）一般可见如下回告： authenticity of host &apos;github.com (19">
+<meta property="og:updated_time" content="2017-07-31T22:40:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub Desktop error">
-<meta name="twitter:description" content="初次安装Mac GitHub Desktop将无法使用 publish，报故“Please check your internet connection ……”。 该问题可能是由于GitHub的SSH配置不当所致。 解决方法： 1）termianl 中执行： -T git@github.com```12342）一般可见如下回告：```The authenticity of host &amp;apos;g">
+<meta name="twitter:description" content="初次安装Mac GitHub Desktop将无法使用 publish，报故“Please check your internet connection ……”。 该问题可能是由于GitHub的SSH配置不当所致。 解决方法： 1）termianl 中执行： ssh -T git@github.com 2）一般可见如下回告： authenticity of host &apos;github.com (19">
   
     <link rel="alternative" href="/atom.xml" title="LiaoSin&#39;s Blog" type="application/atom+xml">
   
@@ -170,9 +170,9 @@
 <p>该问题可能是由于GitHub的SSH配置不当所致。</p>
 <p>解决方法：</p>
 <p>1）termianl 中执行：</p>
-<figure class="highlight plain"><figcaption><span>-T git@github.com```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2）一般可见如下回告：</div><div class="line"></div><div class="line">```The authenticity of host &apos;github.com (192.30.252.1)&apos; can&apos;t be established.RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure>
-<p>3）敲入<strong>yes</strong> ，回车。见如下回告即表征SSH配置完成。</p>
-<p><code>Hi username! You&#39;ve successfully authenticated, but GitHub does notprovide shell access.</code></p>
+<p>ssh -T git@github.com</p>
+<p>2）一般可见如下回告：</p>
+<figure class="highlight plain"><figcaption><span>authenticity of host 'github.com (192.30.252.1)' can't be established.RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.Are you sure you want to continue connecting (yes/no)?```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3）敲入**yes** ，回车。见如下回告即表征SSH配置完成。</div><div class="line"></div><div class="line">```Hi username! You&apos;ve successfully authenticated, but GitHub does notprovide shell access.</div></pre></td></tr></table></figure>
 <p>4）GitHub只是提供了code备份平台，看源程序还需在folder中。</p>
 <p>path：/Users/liaosin/Documents/GitHub</p>
 <p>5）个人code步骤：</p>

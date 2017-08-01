@@ -146,6 +146,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-anaconda-python2-python3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/02/anaconda-python2-python3/">Anaconda中python2.7、python3.5共存</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/02/anaconda-python2-python3/" class="archive-article-date">
+  	<time datetime="2017-08-01T21:25:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前提已装 Mac Anaconda(python3.5)。</p>
+<p>1）terminal</p>
+<p>2）conda create -n python2 python=2.7 anaconda</p>
+<p>3）Proceed ([y]/n)?   <strong>y</strong></p>
+<p>4）激活python2环境</p>
+<p>— 方法1：terminal—-source activate python2(激活)—-source deactivate python2(退出)</p>
+<p>— 方法2：在Anaconda中，设置环境</p>
+<p><img src="/2017/08/02/anaconda-python2-python3/AIUqg.png" alt=""></p>
+<p>5）在jupyter notebook中使用该环境</p>
+<p><img src="/2017/08/02/anaconda-python2-python3/imJrG.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/02/anaconda-python2-python3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-github-desktop-error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -831,92 +902,6 @@
 
 
   
-    <article id="post-Andrew Ng-机器学习笔记（01）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/12/Andrew Ng-机器学习笔记（01）/">Andrew Ng-机器学习笔记（01）-综述</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/12/Andrew Ng-机器学习笔记（01）/" class="archive-article-date">
-  	<time datetime="2017-05-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p><strong>借鉴已有经验和教训E，开展任务T，任务完成指标达到P。</strong></p>
-<p>这个解释方式比较深奥，以判断西瓜成熟程度为例，通俗地翻译”机器学习”的定义：前人积累了很多关于判断西瓜成熟的经验，如可以通过判读敲击回声、如可以通过看西瓜表面花纹等，这些经验均被记录下来了。机器通过学习这些经验，形成自己的评价体系，并利用该评价体系评估一个西瓜的成熟度，并取得一定效果，如70%的准确率。以上过程即为：机器学习！</p>
-<p><img src="/2017/05/12/Andrew Ng-机器学习笔记（01）/6AD3279EB6F2266F86AEBF83E8815455.jpg" alt=""></p>
-<p>还可以有种解释：存在一个未知的函数f，构成了特征（X）至标签（Y）的向量，目前已有的一堆（x_i,y_i）的例子。机器学习就是需要从无穷个假设集（hypothesis set）中找个一个函数g，使得函数g与函数f尽量贴近。以后面对新的特征x_new，即可采用函数g进行预示其标签。</p>
-<p><em>
-</em></p>
-<h3 id="机器学习（Machine-Learning）分类"><a href="#机器学习（Machine-Learning）分类" class="headerlink" title="机器学习（Machine Learning）分类"></a>机器学习（Machine Learning）分类</h3><p>机器学习（Machine Learning）主要可划分为：</p>
-<ul>
-<li>监督学习（Supervised Learning）</li>
-<li>无监督学习（Unsupervised Learning）</li>
-<li>强化学习（Reinforcement Learning）</li>
-<li>推荐系统（Recommender systems）</li>
-<li>etc</li>
-</ul>
-<h3 id="监督学习（Supervised-Learning）"><a href="#监督学习（Supervised-Learning）" class="headerlink" title="监督学习（Supervised Learning）"></a>监督学习（Supervised Learning）</h3><p><strong>定义</strong>：每组数据均有对应的标签。</p>
-<ul>
-<li>回归（Regression）。对连续值进行预示，如对房价进行预示，如下图所示。</li>
-</ul>
-<p><img src="/2017/05/12/Andrew Ng-机器学习笔记（01）/452998D463FF379E3B993165D1BF6E2B.jpg" alt="regression temp.jpeg"></p>
-<ul>
-<li>分类（Classification）。对离散值进行分类，如依据部分特征判断患者是否患有疾病，如下图所示。</li>
-</ul>
-<p><img src="/2017/05/12/Andrew Ng-机器学习笔记（01）/678BDD1C8135BE57ED23B9F887F8B574.jpg" alt=""></p>
-<h3 id="无监督学习（Unsupervised-Learning）"><a href="#无监督学习（Unsupervised-Learning）" class="headerlink" title="无监督学习（Unsupervised Learning）"></a>无监督学习（Unsupervised Learning）</h3><p><strong>定义</strong>：每组数据均没有对应的标签，只能进行聚类分析。</p>
-<p><img src="/2017/05/12/Andrew Ng-机器学习笔记（01）/E5CF89B797043E124B0E8D9A3505A885.jpg" alt=""><img src="/2017/05/12/Andrew Ng-机器学习笔记（01）/5BECEAC46C6D3EE924CD8237E85F32B0.jpg" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/12/Andrew Ng-机器学习笔记（01）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1035,6 +1020,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python in action</a>
               </li>
              
@@ -1044,10 +1033,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">初级配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>

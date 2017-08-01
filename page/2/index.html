@@ -146,6 +146,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Andrew Ng-机器学习笔记（02）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/13/Andrew Ng-机器学习笔记（02）/">Andrew Ng-机器学习笔记（02）-线性回归（1/2）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/13/Andrew Ng-机器学习笔记（02）/" class="archive-article-date">
+  	<time datetime="2017-05-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="机器学习模型的表达"><a href="#机器学习模型的表达" class="headerlink" title="机器学习模型的表达"></a>机器学习模型的表达</h1><h2 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h2><p>$m$：训练集数量<br>$x$：输入变量/特征，每个训练实例有$n$个特征数量<br>$y$：输出值/目标值<br>$(x^{(i)},y^{(i)})$：第$i$个训练实例<br>$h_{\theta}(x)$：假设函数（对于一维数据而言，$h_{\theta}(x)=\theta_0+\theta_1 x$）<br>$\theta_0,\theta_1$：参数<br>$J(\theta_0,\theta_1)$：损失函数，$J(\theta_0,\theta_1)=\frac{1}{2m} \sum_{i=1}^m (h_{\theta}(x^{(i)})-y^{(i)})^2$<br>$min_{\theta_0,\theta_1}J(\theta_0,\theta_1)$：目标函数，通过最优化方法求取$\theta_0,\theta_1$使得损失函数$J(\theta_0,\theta_1)$达到最小值</p>
+<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2><p>使用梯度下降法求取$\theta_0,\theta_1$，具体为：<br><strong> $\theta_j := \theta_j-\alpha. \frac{\partial}{\partial\theta_j}J(\theta_0,\theta_1)$   (for j=0 and j=1)</strong><br><strong>⚠️编程时，所有变量更新完后再进行赋值；否则会造成误更新</strong><br>上式中，$\alpha$为学习率（为正数）。<br>1）在此解释，为何$\alpha$之前为负号。<br>定义：$B=\frac{\partial}{\partial\theta_j}J(\theta_0,\theta_1)$</p>
+<p><img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/EBFA59EE7AE6195BC5F510DC819596BF.jpg" alt=""> <img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/764A4200635EECF2A979FB272ADCA947.jpg" alt=""></p>
+<p>若$B&gt;0,\alpha.B&gt;0$时，$\theta$则往小值方向更替，如左图；<br>若$B&lt;0,\alpha.B&lt;0$时，$\theta$则往大值方向更替，如右图。<br>2）关于学习率$\alpha$的选取问题</p>
+<p><img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/98754C169D12CD63DEE1721DD937F92E.jpg" alt=""> <img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/A7095977F13369707B2472963CE65EE3.jpg" alt=""></p>
+<p>若$\alpha$过小，则寻优速度较慢，所需时间较长；<br>若$\alpha$过大，则可能导致跳跃过平衡点，逐步发散。<br>3）关于寻优问题<br>梯度下降法寻优，很有可能导致寻找至局部最优点。</p>
+<p><img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/61F618D69F9C131F2D28204DE001DA41.jpg" alt=""></p>
+<p>（上图为全局最优点）</p>
+<p><img src="/2017/05/13/Andrew Ng-机器学习笔记（02）/3F484C8CA27D9CA967EF87E4EE8A9F67.jpg" alt=""></p>
+<p>（上图为局部最优点）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/13/Andrew Ng-机器学习笔记（02）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Andrew Ng-机器学习笔记（01）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -696,11 +767,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -146,6 +146,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Andrew Ng-机器学习笔记（04）-逻辑回归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/">Andrew Ng-机器学习笔记（04）-逻辑回归</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/" class="archive-article-date">
+  	<time datetime="2017-05-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>线性回归无法准确描述分类（不是0就是1）的问题，因此引入了逻辑回归。同时逻辑回归可以给出很好的“概率”描述，比较贴近于实际。<br>sigmoid函数：$g(z)=\frac{1}{1+e^{-z}}$</p>
+<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/2F855CD5B206F9349003A3747D733E3A.jpg" alt=""></p>
+<h2 id="假设函数"><a href="#假设函数" class="headerlink" title="假设函数"></a>假设函数</h2><p>$h_{\theta}(x)=g(X \Theta)=\frac{1}{1+e^{(-X \Theta)}}$<br>$h_{\theta}(x)$：在输入x的情况下，输出y=1的概率。即，$h_{\theta}(x)=P(y=1|x;\theta)$<br>存在：$P(y=0|x;\theta)=1-P(y=1|x;\theta)$</p>
+<h2 id="决策界"><a href="#决策界" class="headerlink" title="决策界"></a>决策界</h2><p>当$z&gt;0,g(z)&gt;0.5;\theta^T x&gt;0,h_{\theta}(x)&gt;0.5,y=1$<br>当$z&lt;0,g(z)&lt;0.5;\theta^T x&lt;0,h_{\theta}(x)&lt;0.5,y=0$</p>
+<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/D8BDF30C8C599E726176781BD344285D.jpg" alt=""> <img src="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/92087ACC1A06AFB0C8E7B0879F5CE769.jpg" alt=""></p>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><ul>
+<li>$J(\theta)=-\frac{1}{m}\sum_{i=1}^m[y^{(i)} log(h_{\theta}(x^{(i)}))+(1-y^{(i)})log(1-h_{\theta}(x^{(i)}))]$</li>
+<li>$H_{m \times 1}=h_{\theta}(x)$</li>
+<li>$J(\theta)=-\frac{1}{m}(Y^T log(H)+(1-Y)^T log(1-H))$</li>
+</ul>
+<h2 id="最优化方法"><a href="#最优化方法" class="headerlink" title="最优化方法"></a>最优化方法</h2><p><img src="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/B071170BFFEAF4D76AE2C08139E5C238.jpg" alt=""></p>
+<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/C6293AEF9ABB462FAE69AD52AB0C3CA4.jpg" alt=""></p>
+<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/5587C2DC4B990AB60852F7E9BA693908.jpg" alt=""></p>
+<h2 id="1对多的分类"><a href="#1对多的分类" class="headerlink" title="1对多的分类"></a>1对多的分类</h2><ul>
+<li>参考类别数量，分别建立相应的假设函数（如下图，有3个类别，因此各自建立三个假设函数$h^{(i)}_{\theta}(x)$）</li>
+</ul>
+<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/B6D2DEE151270190E29882662C834796.jpg" alt=""></p>
+<ul>
+<li>针对新输入$x_k$，分别计算$h^{(i)}_{\theta}(x_k)$，取假设函数最大时对应时i作为$x_k$的类别</li>
+</ul>
+<p><img src="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/230092109F79916D199E8CD1E35D503D.jpg" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/21/Andrew Ng-机器学习笔记（04）-逻辑回归/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Andrew Ng-机器学习笔记（02）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -767,11 +849,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,11 +861,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">初级配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">初级配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">deep learning</a>
               </li>
             
             <div class="clearfix"></div>
